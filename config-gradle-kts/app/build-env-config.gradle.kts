@@ -14,6 +14,6 @@ buildscript {
 }
 
 apply(plugin = "me.2bab.buildenvstub")
-//configure<BuildEnvStubExtension> {
-//    textSize = 14
-//}
+configure<BuildEnvStubExtension> {
+    textSize = 14
+}
