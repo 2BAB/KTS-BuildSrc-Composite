@@ -1,5 +1,5 @@
 //include(":plugin-config")
-includeBuild("../plugins/slack") {
+includeBuild("../slack") {
     dependencySubstitution {
         substitute(module("me.2bab.buildinaction:slack"))
             .with(project(":"))
