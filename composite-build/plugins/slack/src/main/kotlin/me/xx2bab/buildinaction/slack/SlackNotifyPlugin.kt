@@ -1,5 +1,6 @@
 package me.xx2bab.buildinaction.slack
 
+import com.android.build.gradle.AppExtension
 import com.android.build.gradle.AppPlugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -17,6 +18,12 @@ abstract class SlackNotifyPlugin : Plugin<Project> {
         // To prevent user from using it in other modules
         project.plugins.withType<AppPlugin> {
             androidAppPluginApplied.set(true)
+            val androidExtension = project.extensions.findByType(AppExtension::class.java)!!
+            androidExtension.applicationVariants.configureEach {
+                this.assembleProvider.configure {
+                    println("assembleProvider: ${this.name}")
+                }
+            }
         }
         project.afterEvaluate {
             check(androidAppPluginApplied.get()) {

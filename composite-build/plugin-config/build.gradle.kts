@@ -13,3 +13,8 @@ dependencies {
     implementation("com.android.tools.build:gradle:4.1.1")
     implementation("me.2bab.buildinaction:slack:+")
 }
+
+repositories {
+    google()
+    mavenCentral()
+}
