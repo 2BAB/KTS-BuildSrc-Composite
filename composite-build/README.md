@@ -9,3 +9,4 @@ Check out the `main` branch of this repository, you can see I did 2 things to mi
 
 These 2 actions caused the `org.gradle.api.Action<T>` translation error. The `Action<T>` here should equal to [Type-Safe Builders](https://kotlinlang.org/docs/type-safe-builders.html) which infers the block context as `this` not `it`. The correct behaviour you can see as below. However this is not a Gradle error, because the build was successful. I guess it's an IDE related issue.
 
+![](./correct_behaviour.png)
