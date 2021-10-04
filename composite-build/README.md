@@ -1,5 +1,31 @@
 # Composite build case
 
+## Solution
+
+**!!!Use the code snippet below can solve the issue!!!.**
+
+``` kotlin
+resolutionStrategy {
+    eachPlugin {
+        when (requested.id.namespace) {
+            "com.android" -> useModule("com.android.tools.build:gradle:4.2.2")
+            "org.jetbrains.kotlin" -> useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31")
+        }
+    }
+}
+
+// Do not use below approach in settings.gradle.kts, though Gradle is fine with it, and it's short.
+// However the IDE does not support it well on some cases. 
+// plugins {
+//     id("com.android.application") version "4.2.2"
+//     kotlin("android") version "1.5.31"
+// }
+```
+
+However, I don't know what happened to IDE if I used `plugins{}` in `pluginManagement`?
+
+## Original issue
+
 ![](./issue-screenshot.png)
 
 Check out the `main` branch of this repository, you can see I did 2 things to migrate from main:
